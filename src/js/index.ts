@@ -4,14 +4,14 @@ import axios,{
 } from "../../node_modules/axios/index"
 
 interface ISensor{
-    Date : string,
+    dates : string,
     CO: string,
     NOx : string,
     ParticleLevel : string
 }
 
 //url for the rest webservice at Azure
-let URI: string = "https://restservice20191104123408.azurewebsites.net/api/Bids";
+let URI: string = "https://localhost:44386/api/SensorDatas";
 
 //create a click eventlistener at "Add" button
 let GetBidButton: HTMLButtonElement = <HTMLButtonElement> document.getElementById("getAllButton");
@@ -63,7 +63,7 @@ function PopulateTable(date:string, CO:string, NOx:string, ParticleLevel:string)
                 axios.get<ISensor[]>(URI)
                 .then(function(response:AxiosResponse<ISensor[]>){
                     response.data.forEach((eachData:ISensor) => {
-                    PopulateTable(eachData.Date,eachData.CO,eachData.NOx,eachData.ParticleLevel)
+                    PopulateTable(eachData.dates,eachData.CO,eachData.NOx,eachData.ParticleLevel)
                     });
                 })
                 .catch(function(error:AxiosError){
