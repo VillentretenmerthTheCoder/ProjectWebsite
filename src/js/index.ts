@@ -11,7 +11,7 @@ interface ISensor{
 }
 
 //url for the rest webservice at Azure
-let URI: string = "https://localhost:44386/api/SensorDatas";
+let URI: string = "https://sensorewebapi20191117112306.azurewebsites.net/api/SensorDatas";
 
 //create a click eventlistener at "Add" button
 let GetBidButton: HTMLButtonElement = <HTMLButtonElement> document.getElementById("getAllButton");
